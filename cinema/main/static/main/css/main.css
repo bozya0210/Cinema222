@@ -1,0 +1,180 @@
+/* Общие стили */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #2980b9, #6dd5fa);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Стили для логотипа */
+.logo h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Стили для навигации */
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+/* Основной контейнер */
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Стили для таблицы с фильмами */
+.movie-table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.movie {
+    flex-basis: calc(33.33% - 20px); /* 33.33% ширины с учетом отступов */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.movie img {
+    max-width: 100%; /* Изображение будет занимать всю доступную ширину внутри блока */
+    height: auto;
+}
+
+.movie h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.movie p {
+    color: #555;
+}
+
+/* Кнопка стили */
+.button {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #c0392b;
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Дополнительные стили */
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.icon {
+    transition: transform 0.3s;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
+
+/* Медиа запросы для адаптивности */
+@media screen and (max-width: 768px) {
+    .movie {
+        flex-basis: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .movie {
+        flex-basis: 100%;
+    }
+}
+
+/* Добавленные стили для блока сессий фильма */
+.movie-sessions {
+    margin-top: 20px;
+}
+
+.movie-sessions ul {
+    list-style: none;
+    padding: 0;
+}
+
+.movie-sessions li {
+    margin-bottom: 10px;
+}
+
+.movie-session-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста кнопки */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.movie-session-button:hover {
+    background-color: #0056b3; /* Цвет фона кнопки при наведении */
+    cursor: pointer;
+}
+.login-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Стили для блока с кнопкой в правом верхнем углу */
+.login-container {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+/* Медиа запросы для адаптивности */
+@media screen and (max-width: 768px) {
+    .login-container {
+        top: 5px;
+        right: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .login-container {
+        top: 5px;
+        right: 5px;
+    }
+}

@@ -1,0 +1,35 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Детали фильма - {{ movie.title }}{% endblock %}
+
+{% block content %}
+<section class="movie-detail-section">
+    <div class="movie-detail">
+        <img src="{{ movie.image.url }}" alt="{{ movie.title }}">
+        <h2>{{ movie.title }}</h2>
+        <p>{{ movie.description }}</p>
+        <p><strong>Год выпуска:</strong> {{ movie.year }}</p>
+        <p><strong>Режиссер:</strong> {{ movie.director }}</p>
+        <p><strong>Жанр:</strong> {{ movie.genre }}</p>
+        <p><strong>Рейтинг:</strong> {{ movie.rating }}</p>
+    </div>
+
+    <div class="movie-sessions">
+        <h3>Сеансы</h3>
+        <ul>
+            {% for session in movie.session_set.all %}
+                <li>
+                    <a href="{% url 'movie_detail' movie.pk %}" class="movie-session-button">
+                        <strong>Дата и время:</strong> {{ session.start_time }}
+                        <br>
+                        <strong>Место показа:</strong> {{ session.cinema_hall.get_hall_name_display }}
+                    </a>
+                </li>
+            {% empty %}
+                <li>Нет доступных сеансов</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}

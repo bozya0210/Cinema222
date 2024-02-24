@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор места на сеанс</title>
+    <link rel="stylesheet" href="{% static 'main/styles.css' %}"> <!-- Используйте для загрузки стилей -->
+</head>
+<body>
+    <h1>Выберите места на сеанс</h1>
+    <form action="{% url 'process_seats_selection' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="session_id" value="{{ session_id }}">
+        <div class="seats">
+           {% for session_seat in session_seats %}
+                <input type="checkbox" name="selected_seats" value="{{ session_seat.seat.id }}" {% if session_seat.is_reserved %}disabled{% endif %}>
+                <label {% if session_seat.is_reserved %}class="reserved"{% endif %}>Ряд: {{ session_seat.seat.row_number }}, Место: {{ session_seat.seat.seat_number }}</label><br>
+           {% endfor %}
+        </div>
+        <button type="submit">Забронировать выбранные места</button>
+    </form>
+</body>
+</html>
+
+{% endblock %}

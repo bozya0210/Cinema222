@@ -1,0 +1,30 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Фильмы в прокате - Кинотеатр{% endblock %}
+
+{% block content %}
+<section class="movies-section">
+    <h2>Фильмы в прокате</h2>
+    <div class="movie-table">
+        <div class="movie">
+            <a href="{% url 'movie_detail' movie_id=1 %}">
+                <img src="{% static 'main/img/LED_3.jpg' %}" alt="Movie 1">
+                <h3>Название фильма 1</h3>
+            </a>
+        </div>
+        <div class="movie">
+            <a href="{% url 'movie_detail' movie_id=2 %}">
+                <img src="{% static 'main/img/Master_and_margarita.jpg' %}" alt="Movie 2">
+                <h3>Название фильма 2</h3>
+            </a>
+        </div>
+        <div class="movie">
+            <a href="{% url 'movie_detail' movie_id=3 %}">
+                <img src="{% static 'main/img/Bremenskie_myzykanty.jpg' %}" alt="Movie 3">
+                <h3>Название фильма 3</h3>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
